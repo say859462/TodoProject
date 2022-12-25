@@ -1,0 +1,370 @@
+body {
+  font-family: fantasy, sans-serif;
+  color: #17252a;
+  font-weight: thin;
+  min-width: 1200px;
+  height: 1080px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /*
+  background-image: url("cat-space.gif");
+  */
+}
+
+#sideBar {
+  height: 3000px;
+  width: 15%;
+  position: absolute;
+  left: -16%;
+  top: -10px;
+  padding-left: 5px;
+  background: #def2f1;
+  transition: left 0.5s ease;
+}
+#sideBarButton {
+  position: absolute;
+  top: -10px;
+  left: -0.6%;
+  width: 110%;
+  height: 35px;
+  background-color: #8cbdb9;
+  transition: left 0.5s ease;
+}
+
+#rainbowCat {
+  position: relative;
+  top: 6px;
+  padding-right: 10px;
+  width: 40px;
+  height: 40px;
+}
+#clock {
+  border: none;
+  height: 35px;
+  width: 100%;
+  position: relative;
+  left: 40%;
+}
+
+#inputField {
+  border: none;
+  border-radius: 10px;
+  width: 65%;
+  height: 25px;
+  padding: 10px;
+  font-size: 1.2em;
+  color: #17252a;
+  overflow: hidden;
+}
+
+#titleText:hover {
+  transform: rotateY(180deg);
+}
+
+#functionField {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: white;
+  border-radius: 10px;
+}
+
+#dueDate {
+  position: relative;
+  left: 2px;
+  outline: none;
+  width: 110px;
+  height: 45px;
+  border: none;
+}
+.selectBackground,
+#themeList button img {
+  width: 30px;
+  height: 30px;
+}
+.selectBackground:hover,
+#fileButton:hover,
+#themeList button:hover {
+  box-shadow: 2px 4px gray;
+  transition: 0.7s;
+}
+#backgroundList button,
+#themeList button {
+  border: none;
+}
+#addButton {
+  background: #2b7a78;
+  color: #fff;
+  border: 1px solid grey;
+  margin-left: 4px;
+  height: 45px;
+  width: 100px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background 0.7s;
+}
+#themeList {
+  position: absolute;
+  left: 14%;
+  top: 0%;
+  border: 3px solid #def2f1;
+  background-color: rgb(243, 251, 249);
+  display: flex;
+  flex-wrap: wrap;
+  width: 180px;
+  height: auto;
+  align-items: center;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+#backgroundList {
+  position: absolute;
+  left: 14%;
+  top: 5%;
+  border: 3px solid #def2f1;
+  background-color: rgb(243, 251, 249);
+  display: flex;
+  flex-wrap: wrap;
+  width: 180px;
+  height: auto;
+  align-items: center;
+  border-radius: 10px;
+  padding: 5px;
+}
+#ascendingButton {
+  position: relative;
+  top: 10px;
+}
+
+#addButton:hover {
+  background: #5c9792;
+}
+
+#addButton:active {
+  background-color: #8cbdb9;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+#sideBarButton.visible {
+  position: absolute;
+  left: 14.6%;
+  transition: left 0.7s ease;
+}
+
+#sideBar.visible {
+  left: -10px;
+  transition: left 0.7s ease;
+}
+
+#sideBar div {
+  padding: 8px;
+  padding-bottom: 20px;
+  font-size: 18px;
+  color: #17252a;
+  display: block;
+  transition: 0.5s;
+}
+
+.listWord {
+  color: rgb(153, 150, 150);
+  position: relative;
+  top: -5px;
+  padding-right: 8px;
+}
+
+.chooseField {
+  display: flex;
+  flex-wrap: nowrap;
+  float: right;
+}
+
+#filterField {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-right: 10px;
+}
+#fileButton {
+  width: 30px;
+  height: 30px;
+}
+.select {
+  font-family: monospace;
+  font-size: 16px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  height: 40px;
+  width: 140px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  padding-left: 5px;
+}
+
+#titleText {
+  position: relative;
+  left: 25%;
+  font-size: 40px;
+  width: 50%;
+  color: #2b7a78;
+  transition: 0.5s;
+  text-decoration: underline;
+}
+#showDueDate {
+  position: relative;
+  border: 2px solid rgb(242, 201, 51);
+  border-radius: 5px;
+  padding: 5px 20px;
+  top: -5px;
+  left: -60%;
+  font-size: 1em;
+  background-color: white;
+}
+#showDueDate i {
+  color: rgb(242, 201, 51);
+  padding-right: 10px;
+  padding-bottom: 5px;
+}
+.content {
+  align-items: center;
+  width: 52%;
+  height: auto;
+  border: 1px solid black;
+  border-radius: 5px;
+  left: 30%;
+  position: absolute;
+  top: 50px;
+  box-shadow: 2px 5px grey;
+  background: rgb(253, 247, 247);
+}
+
+#popOut {
+  z-index: 999;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  left: 5%;
+}
+
+#warning {
+  height: 30px;
+  width: 300px;
+  font-size: 1.2em;
+  letter-spacing: 0.5px;
+  color: #d8000c;
+  background-color: #ffbaba;
+  border-radius: 5px;
+  padding-top: 7px;
+}
+
+#even {
+  background-color: #5c9792;
+}
+
+#odd {
+  background-color: #def2f1;
+}
+
+#sideBar img {
+  outline: none;
+  border: none;
+  padding-right: 5px;
+  position: relative;
+  top: 3px;
+  width: 20px;
+  height: 20px;
+}
+#ascendingToolTip {
+  color: white;
+  background: rgb(133, 132, 132);
+  position: absolute;
+  width: 80px;
+  text-align: center;
+  border-radius: 5px;
+  z-index: 1;
+  padding: 5px 0;
+}
+#sideBar div:hover {
+  background: #2b7a78;
+}
+#linearBackground {
+  width: 100%;
+  height: 100%;
+  animation: gradient 2s infinite alternate linear;
+  background: hsl(224, 38%, 41%);
+}
+@keyframes gradient {
+  100% {
+    background: hsl(338, 38%, 41%);
+  }
+}
+.delIMG {
+  color: #e7286b;
+  transition: 0.5s;
+}
+.delIMG i:hover {
+  background-color: rgb(177, 165, 165);
+  transition: 0.5s;
+}
+.delIMG i {
+  position: relative;
+  left: -3px;
+  top: 5px;
+  z-index: 999;
+  border-radius: 5px;
+  font-size: 20px;
+}
+.functionField {
+  align-items: center;
+  position: relative;
+  top: 0px;
+  float: right;
+}
+.taskUl {
+  padding-top: 15px;
+  border-radius: 10px;
+  height: 45px;
+  width: auto;
+  color: rgb(104, 101, 101);
+  font-size: 1.2em;
+  transition: 0.5s;
+}
+
+ul input {
+  position: relative;
+  left: -20px;
+  top: 2px;
+  height: 15px;
+  width: 15px;
+  transition: 0.5s;
+}
+ul input:hover {
+  box-shadow: 2px 3px rgb(178, 177, 177);
+}
+.showAddTime i {
+  font-size: 15px;
+}
+.showAddTime {
+  color: rgb(157, 157, 157);
+  width: 100%;
+  position: relative;
+  left: 78%;
+}
+.showAddTime span {
+  font-size: 15px;
+  font-family: sans-serif;
+}
+
+.functionField button {
+  position: relative;
+  top: -5px;
+  background-color: rgb(253, 247, 247);
+  font-size: 15px;
+  margin: 0 5px;
+  border: none;
+}
+#sideBarButton i:hover {
+  opacity: 0.7;
+  transition: 0.5s;
+}

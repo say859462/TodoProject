@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/97739c93ca.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>My to do list</title>
+    <style type="text/css">
+      @import "/stylesheets/init.css";
+      @import "/stylesheets/shootingStar.css";
+      @import "/stylesheets/firework.css";
+      @import "/stylesheets/downStar.css";
+      @import "/stylesheets/ripple.css";
+      @import "/stylesheets/ring.css";
+    </style>
+
+    <script type="text/javascript" src="/javascripts/initJS.js"></script>
+  </head>
+
+  <body>
+    <div id="ring">
+      <div class="view">
+        <ul class="circles">
+          <li class="h1 item"></li>
+          <li class="h2 item"></li>
+          <li class="h3 item"></li>
+          <li class="h4 item"></li>
+          <li class="h5 item"></li>
+          <li class="h6 item"></li>
+          <li class="h7 item"></li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="linearBackground"></div>
+
+    <div id="rippleRound">
+      <div class="ripple-background">
+        <div class="circle xxlarge shade1"></div>
+        <div class="circle xlarge shade2"></div>
+        <div class="circle large shade3"></div>
+        <div class="circle mediun shade4"></div>
+        <div class="circle small shade5"></div>
+      </div>
+    </div>
+
+    <div id="downStar">
+      <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </div>
+
+    <div class="pyro">
+      <div class="before"></div>
+      <div class="after"></div>
+    </div>
+
+    <div id="stars"></div>
+
+    <div id="sideBar">
+      <div id="themeButton">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3659/3659752.png"
+        />Effect
+      </div>
+      <div id="backgroundButton">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/16/16410.png"
+        />Background
+      </div>
+      <div id="logOutButton">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828479.png" />Log
+        out
+      </div>
+    </div>
+    <div id="sideBarButton">
+      <i
+        class="fa-solid fa-bars"
+        style="color: white; font-size: 25px; position: absolute; top: 5px"
+      ></i>
+    </div>
+    <!--警告語-->
+    <div id="popOut">
+      <div id="warning">
+        <i class="fa fa-warning"></i>Please check the input and date
+      </div>
+    </div>
+    <!--主題/背景選單-->
+
+    <div id="themeList">
+      <button id="starButton">
+        <img
+          src="https://cdn.britannica.com/62/187062-138-9D11F50A/snowflakes.jpg?w=800&h=450&c=crop"
+        />
+      </button>
+      <button id="fireworkButton">
+        <img src="https://ichef.bbci.co.uk/images/ic/1920x1080/p05lqc4f.jpg" />
+      </button>
+      <button id="downStarButton">
+        <img
+          src="data:image/jpeg;base64,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"
+        />
+      </button>
+      <button id="rippleRoundButton">
+        <img
+          src="https://integralads.com/wp-content/uploads/2020/11/RippleEffect2-scaled.jpg"
+        />
+      </button>
+      <button id="ringButton">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOd_7V5BZkl3RbNhweDBJ68u8ibOkPafoLBA&usqp=CAU"
+        />
+      </button>
+    </div>
+
+    <div id="backgroundList">
+      <!--
+      <input type="file" id="file-uploader" accept="image/*" hidden />
+      <button id="fileButton">
+        <i class="fa-sharp fa-solid fa-arrow-up-from-bracket"></i>
+      </button>
+      -->
+      <button id="linearButton">
+        <img
+          src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwcHBw0HBwcHBwcHBw0HBwcHBw8ICQcNFREWFhURExMYKCggGBoxJxUfITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0NDw0PDysZFRk3LTc3LTcrLTcrKy03LS0rKy0rKy0tKy0rKysrKysrKystKysrKysrKystLSsrKzctLf/AABEIALcBEwMBIgACEQEDEQH/xAAaAAEBAQADAQAAAAAAAAAAAAACAQADBAUG/8QAFhABAQEAAAAAAAAAAAAAAAAAAAER/8QAGgEBAQEBAQEBAAAAAAAAAAAAAgEABQMGBP/EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAwDAQACEQMRAD8A9yHIkhSP1V+2UoUSHIJyrCkSFBr0lWHEkKC9JVhRIUGvSVYUSFBPShRIUYaUKDCiBThQYUQaUOBCjDThQIUQThShKUrDTlLXHq6w4eroa2o2Fo2po2s2LaNrWhahSNaNrWjaxyMw6jE+YhxIUdB+KUpCiQoNekqw4kKCcqwokKDXpKsKJCg16SrCiRYJylCiQozVYcCFEE4UCFEo04sGFEEoUCFKyUpSlCLqCeroausmFraOpqNhalqaNrLi2ja1o2sUjWha1o2oUjaw6zFj5+FEhx0XOlWFEhwacqwokKDXpKsKJCiU5VixosF6SlFiQoNOVYUGFBIosSLGQoUGLGEoUFYiFFFUQtXR1tRMPW0dbWTC1tHU1FwtS0dS1lxbRta0bWWRrQta0bUORdYNZlx40ODDjo1yZVhwYcE5VhRIUSvSVYUSFBOVYsSFEOVYsSEL0lWLEijhyrCglEVYqKiEoqyEwrqIWro62oha2jrajFqaOtrLi6lqalqLjWja1o2sUjWja1o2sUjawazFjzYcGHHScSVYcGHBwpVhRIUE5VixosTDlWFEiwcekqqyocrKywcOVlRRw5VVFRVUVRFXRZmJtHW1mLW0dbUxsXU1NTUXF1LUtS1FxbRtS0bUKRbQta0bWKRtYdZix04cGHHTfPyrDgwohSlCiRYNhyrCiQohyrFiRYOHKsWIqYcqqiicrK0YbDlZUZDlVUZCVkZGVtRNRl1tTU1lXU1NS1FW1LUtS1Fa0bWtG1Cka0bWtG1DkbWHWZXDDgwo6uPmpShRIUEpVhRIUQ5VixosTClWKhDhysrMmHKrMw4cqszIcrMzDhyszImHKrIw4crMiamKupramoq6NraNrEtqWpaNqLIto2taNqE1oWraFqE2smsy60KDDjqvlZShRIUQ5VhRIUHClWLEhIUrKyocrKijhyszMhyqyMmHKqMw4crMyJhyszIOFK2oyJhyslbU1MKVqlrUamFrWpa1G1MLWtG1rRtZdaja1o2tjayhqti65IcGFHTx8tpQ4MKIWlFjRYhSrFaKmHKrMqYUrMyicqKzJhyozMhSszIOHKyMyYcrIyIcrIyVMKVqNWjRw5WqWtRrLrWpalS1C1rRta0bUxda0LVtG1sXW1h1mxtdmHAhx0nzGlDgw4xasKJCiYWrFjRUKVlZkKVmZhw5WZmQ5UZkTClZFQcOVkZEOVkZKmHKw1ko4UrWpWo2thStalrWjamFrWja1qWpi6lo1bRtbC1KNa0bUxtZh1mxdd6HAhx0nzOnCgw4haUKDCiLqwkhNhSszMOFKzMyHKiKiYcrVGQcOVkZEKVkZKmHKw1rUqHK1StRtQpWtS1rRtTCla0bVtG1MLWtG1rRtTF1rRta0bWxda0LVtC1F1tYdZsXXoxyRmdF82cOMyKcKMyEUJmZWZmQolZmSnESownGGqyU4KVmQolFmE4lS1malBtSswnBtG1mQolG1mZRtG1mQhtG1mZRtC1mRR1WZmf/2Q=="
+          class="selectBackground"
+        />
+      </button>
+      <button>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/White_flag_of_surrender.svg/800px-White_flag_of_surrender.svg.png"
+          class="selectBackground"
+        />
+      </button>
+      <button>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Black_colour.jpg/640px-Black_colour.jpg"
+          class="selectBackground"
+        />
+      </button>
+      <button>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Lightblue.svg/1200px-Lightblue.svg.png"
+          class="selectBackground"
+        />
+      </button>
+      <button>
+        <img
+          src="https://img.freepik.com/free-photo/old-black-background-grunge-texture-dark-wallpaper-blackboard-chalkboard-room-wall_1258-28312.jpg"
+          class="selectBackground"
+        />
+      </button>
+      <button><img src="/images/Hcat.jpg" class="selectBackground" /></button>
+      <button>
+        <img
+          src="https://media.tenor.com/bCfpwMjfAi0AAAAC/cat-typing.gif"
+          class="selectBackground"
+        />
+      </button>
+      <button>
+        <img src="/images/yourName.png" class="selectBackground" />
+      </button>
+
+      <button>
+        <img src="/images/doll.jpg" class="selectBackground" />
+      </button>
+      <!--Upload new image-->
+
+      <input type="file" id="file-uploader" value="" accept="image/*" hidden />
+
+      <button id="fileButton">
+        <i class="fa-sharp fa-solid fa-arrow-up-from-bracket"></i>
+      </button>
+    </div>
+
+    <!--To Do 本體-->
+    <div class="content">
+      <marquee direction="left" id="titleText"
+        ><img
+          src="https://www.icegif.com/wp-content/uploads/2022/09/icegif-385.gif"
+          id="rainbowCat"
+        />To Do List</marquee
+      >
+
+      <!--時間--->
+
+      <iframe src="Clock/clockMain.html" id="clock"></iframe>
+
+      <!--Important task check-->
+
+      <div id="functionField">
+        <!--輸入欄位-->
+        <input
+          type="text"
+          id="inputField"
+          placeholder=" Add a task..(Don't too long)"
+        />
+        <!--Due Date Input-->
+        <input type="date" id="dueDate" title="Due Date" />
+        <!--Add Task Button-->
+        <button id="addButton">ADD</button>
+      </div>
+      <hr />
+      <!--Filter List-->
+      <div class="chooseField">
+        <div id="filterField">
+          <p class="listWord">Filter</p>
+          <select class="select" id="filter">
+            <option value="All">All</option>
+            <option value="Completed">Completed</option>
+            <option value="Active">Active</option>
+            <option value="Due">Due</option>
+          </select>
+        </div>
+      </div>
+      <br /><br /><br />
+      <div id="tasks"></div>
+    </div>
+  </body>
+</html>
